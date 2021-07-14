@@ -4,8 +4,15 @@ fun main(){
     val numvers = IntArray(100) {0}
 
     print("숫자 개수 : ")
-    val numCount = readLine()!!.trim().toInt()
+    val numCount = readLine()!!.trim().toIntOrNull()//toInt()
     println("${numCount}개의 숫자를 입력 받습니다.")
+
+    if (numCount == null) {
+        print("잘못 입력 하셨습니다.")
+        return
+    }else{
+        print("\"${numCount}개의 숫자를 입력 받습니다.\"")
+    }
 
     for (i in 0 until numCount) {
         print("${i+1}번째 숫자 : ")
