@@ -1,18 +1,24 @@
-fun main(){
+fun main() {
     println("== 프로그램시작 ==")
 
-    val numvers = IntArray(100) {0}
+    val numvers = IntArray(10) { 0 }
+    var numCount = 0
 
-    print("숫자 개수 : ")
-    val numCount = readLine()!!.trim().toIntOrNull()//toInt()
+
+    while (true) {
+
+        print("숫자 개수 : ")
+        numCount = readLine()!!.trim().toInt()
+
+        if (numCount > numvers.size) {
+            println("${numvers.size}이하의 숫자를 입력하세요.")
+        }
+        else {
+            break
+        }
+    }
     println("${numCount}개의 숫자를 입력 받습니다.")
 
-    if (numCount == null) {
-        print("잘못 입력 하셨습니다.")
-        return
-    }else{
-        print("\"${numCount}개의 숫자를 입력 받습니다.\"")
-    }
 
     for (i in 0 until numCount) {
         print("${i+1}번째 숫자 : ")
