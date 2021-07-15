@@ -1,19 +1,17 @@
 fun main() {
     println("== 프로그램시작 ==")
 
-    val numvers = IntArray(10) { 0 }
+    val numbers = IntArray(10) { 0 }
     var numCount = 0
 
-
-    while (true) {
+    while (true) {     // 무한하게 입력받는다.
 
         print("숫자 개수 : ")
         numCount = readLine()!!.trim().toInt()
 
-        if (numCount > numvers.size) {
-            println("${numvers.size}이하의 숫자를 입력하세요.")
-        }
-        else {
+        if (numCount > numbers.size) {
+            println("${numbers.size}이하의 숫자를 입력하세요.")
+        }   else  {
             break
         }
     }
@@ -22,18 +20,12 @@ fun main() {
 
     for (i in 0 until numCount) {
         print("${i+1}번째 숫자 : ")
-        numvers[i] = readLine()!!.trim().toInt()
+        numbers[i] = readLine()!!.trim().toInt()
     }
 
-    var sum = 0
+    var average = numbers.sum()/numCount
 
-    for (i in 0 until numCount) {
-        sum += numvers[i]
-    }
-
-    var average = sum / numCount
-
-    println("입력하신 숫자의 합은 ${sum} 입니다.")
+    println("입력하신 숫자의 합은 ${numbers.sum()} 입니다.")
     println("입력하신 숫자의 평균은 ${average} 입니다.")
 
 
