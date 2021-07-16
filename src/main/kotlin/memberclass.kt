@@ -1,7 +1,7 @@
 import java.lang.reflect.Member
 
 fun main(){
-    println("회원관리프로그램 ver.1.0")
+    println("회원관리프로그램 ver 1.0")
 
     print("회원 수를 입력하세요 : ")
     val membersCount = readLine()!!.trim().toInt()
@@ -40,10 +40,13 @@ data class member(
     val gender: Char
 
 ) {
-    fun getGenderKor(): String {
-        if (gender == 'w') {
-            return "여자"
+    fun getGenderKor() = when (gender) {
+         'w' -> {
+                "여자"
+            }
+            else -> {
+                "남자"
+            }
         }
-        return "남자"
-    }
+
 }
