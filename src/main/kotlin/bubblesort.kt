@@ -1,12 +1,10 @@
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.IntData
-
 fun main(){
     println("== 프로그램 시작 ==")
     print("숫자(띄워쓰기로구분) : ")
 
-    bubblesort(numbers)
-
     val numbers = readLine()!!.trim().split(" ").map { it.toInt()}.toMutableList()  //Array는 크기조절불가 List는 가능
+
+    bubblesort(numbers)
 
     print("오름차순 정렬 결과 : ")
     printNumbers(numbers)
@@ -21,7 +19,21 @@ fun main(){
 }
 
 fun bubblesort(numbers : MutableList<Int>) {
+    val lastIndex = numbers.size -1
+    var raiseCount = 0
 
+    for ( depth in lastIndex downTo 1) {
+        println("raiseCount : ${++raiseCount}, depth : ${depth}")
+
+        for (i in 0 until depth) {
+            println("numbers[$i] vs numbers[${i + 1}]")
+
+
+            if (numbers[i] > numbers[i + 1]) {
+                numbers[i] = numbers[i + 1].also { numbers[i + 1] = numbers[i] }
+            }
+        }
+    }
 }
 
 fun printNumbers(numbers : List<Int>) {
