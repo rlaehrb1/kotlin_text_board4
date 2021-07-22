@@ -34,7 +34,9 @@ fun main(){
 
 fun isMemberBiggerThan(member: Member, member1: Member):Boolean {
     if (member.age != member1.age) return member.age > member1.age
-    return member.name > member1.name
+    if (member.name != member1.name ) return member.name > member1.name
+    if (member.gender != member1.gender ) return (member.gender < member1.gender )
+    return member.id > member1.id
 }
 
 fun sortMembersByAgeAsc(members: Array<Member>) {
