@@ -22,8 +22,12 @@ fun bubblesort(numbers : MutableList<Int>) {
     val lastIndex = numbers.size -1
     var raiseCount = 0
 
-    for ( depth in lastIndex downTo 1) {
+    var depth = lastIndex
+    while ( depth >= 1 ) {
         println("raiseCount : ${++raiseCount}, depth : ${depth}")
+
+        /*for ( depth in lastIndex downTo 1) {
+        println("raiseCount : ${++raiseCount}, depth : ${depth}")*/
 
         for (i in 0 until depth) {
             println("numbers[$i] vs numbers[${i + 1}]")
@@ -33,6 +37,8 @@ fun bubblesort(numbers : MutableList<Int>) {
                 numbers[i] = numbers[i + 1].also { numbers[i + 1] = numbers[i] }
             }
         }
+
+        depth--
     }
 }
 
